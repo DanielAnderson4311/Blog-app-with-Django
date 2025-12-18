@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+    <head>
+        <title>Posts</title>
+           <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+    </head>
+    <body>
+        <h1 style="text-align: center;">All posts</h1>
+        {% for post in posts %}
+        <p>title: {{ post.title }}</p>
+        <p>preview: {{ post.body }}</p>
+        <p>by: {{ post.author }}</p>
+        {% endfor %}
+    </body>
+</html>

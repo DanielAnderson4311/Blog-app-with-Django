@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Add post</title>
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+</head>
+<body>
+    <h1>
+        Add a post
+    </h1>
+    <form action="/create/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Save">
+    </form>
+    {% if success %}
+    <script>alert("Saved")</script>
+    {% endif %}
+</body>
+</html>
