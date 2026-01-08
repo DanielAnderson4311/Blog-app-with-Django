@@ -67,4 +67,17 @@ li a:hover {
     border-radius: 10px;
     padding: 30px;
 }
-
+.fstyle input {
+    padding: 15px;
+    margin: 10px;
+    border: none;
+}
+.fstyle button {
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
