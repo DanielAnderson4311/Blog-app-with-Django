@@ -30,11 +30,25 @@ def signup(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             User.objects.create_user(username=username, password=password, first_name=fname, last_name=lname)
-            return redirect('accounts/login.html')  # Redirect to login page after successful, only if, signup
+            return redirect('/accounts/login.html')  # Redirect to login page after successful, only if, signup
         else:
             return render(request, 'accounts/signup.html', {'form': form, 'errors': 'An error occured or the form is not valid. Please correct any errors and try again.'})
 
 
 
 def login(request):
-    pass
+    if request.method == "GET": # Render the page witht the form here
+        from .forms import LoginForm
+        form = LoginForm()
+        return render(request, 'accounts/login.html', {'form': form})
+    if request.method == "POST":
+        from django.contrib.auth import authenticate
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        client = authenticate(username=username, password=password)
+        if not client is None:
+            from django.contrib.auth import login
+            login(request, client)
+            return redirect('/')  # Redirect to home page after successful login
+        else:
+            context = {"form": LoginForm(), "error": "Login failed. Check your username and password and try again..."}

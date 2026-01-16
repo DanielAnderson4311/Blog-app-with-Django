@@ -1,15 +1,36 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-       <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
 </head>
+
 <body>
     <div class="bannerimg">
-        
+        <div class="banner">
+            <div class="glass_container">
+                <h1 style="font-size: 125%;">Login to your account or <a href="/accounts/signup/">press here to create an
+                        account</a></h1>
+                        <br><br>
+                <form action="" method="post">
+                {% csrf_token %}
+                <div class="fstyle">
+                    {{ form }}
+                    <button type="submit">Login</button>
+                </div>
+                </form>
+            </div>
+        </div>
+
     </div>
+    {% if error %}
+    <script>
+        alert("{{ error }}");
+    </script>
 </body>
+
 </html>

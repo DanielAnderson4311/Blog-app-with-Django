@@ -81,3 +81,21 @@ li a:hover {
     border-radius: 5px;
     cursor: pointer;
 }
+.blackout {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    pointer-events: all; /* This will block all clicks and allow me to put the alert on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alertbox {
+    z-index: 999;
+    background-color: white;
+    padding: 20px;
+    font-size: 100px;
+}
