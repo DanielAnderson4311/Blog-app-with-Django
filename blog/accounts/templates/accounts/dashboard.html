@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User dashboard</title>
+       <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+       <!-- This page will have the options for logging in and out and changing a profile (when I make it....) -->
+</head>
+<body>
+        <div class="bannerimg" style="height: 350px;">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li style="margin-left: auto;"><a href="/accounts/login/">Account</a></li>
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+        <div class="banner">
+            <div class="glass_container" style="padding: 50px; width: 27%;">
+                <h1>Accounts</h1>
+                <br>
+                <p>Login, logout and edit your account</p>
+            </div>
+        </div>
+    </div>
+    <!-- Options for the login and logout buttonss -->
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="/accounts/login/"><button style="padding: 10px; font-size: 20px; margin-right: 20px;">Login</button></a>
+        <a href="/accounts/signup/"><button style="padding: 10px; font-size: 20px; margin-left: 20px;">Sign up</button></a>
+</body>
+</html>

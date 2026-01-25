@@ -11,7 +11,8 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li style="margin-left: auto;"><a href="/accounts/login/">Account</a></li>
+                <li style="margin-left: auto;"><a href="/accounts/dash/">
+                    {% if user.is_authenticated %}Account{% else %}Login{% endif %}</a></li>
                 <li><a href="#">Search</a></li>
             </ul>
         </nav>

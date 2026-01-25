@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 # Create your views here.
 
+
+def dashboard(request):
+    return render(request, 'accounts/dashboard.html')
+
 from .forms import SignupForm
 from django.contrib.auth.models import User # Model for where the user information is default stored
 from django.core.validators import validate_email
@@ -30,7 +34,7 @@ def signup(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             User.objects.create_user(username=username, password=password, first_name=fname, last_name=lname)
-            return redirect('/accounts/login.html')  # Redirect to login page after successful, only if, signup
+            return redirect('/accounts/login')  # Redirect to login page after successful, only if, signup
         else:
             return render(request, 'accounts/signup.html', {'form': form, 'errors': 'An error occured or the form is not valid. Please correct any errors and try again.'})
 
@@ -51,4 +55,6 @@ def login(request):
             login(request, client)
             return redirect('/')  # Redirect to home page after successful login
         else:
+            from .forms import LoginForm
             context = {"form": LoginForm(), "error": "Login failed. Check your username and password and try again..."}
+            return render(request, 'accounts/login.html', context)

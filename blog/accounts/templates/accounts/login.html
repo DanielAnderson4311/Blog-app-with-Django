@@ -10,27 +10,48 @@
 </head>
 
 <body>
+    <div id="block" style="display: none;">
+        <div id="alertbox">{{ error }} <br><br><button onclick="hide()">Okay</button></div>
+    </div> <!-- this is the alert box that will have the class changed when there is an error, JS -->
     <div class="bannerimg">
         <div class="banner">
             <div class="glass_container">
-                <h1 style="font-size: 125%;">Login to your account or <a href="/accounts/signup/">press here to create an
+                <h1 style="font-size: 125%;">Login to your account or <a href="/accounts/signup/">press here to create
+                        an
                         account</a></h1>
-                        <br><br>
+                <br><br>
                 <form action="" method="post">
-                {% csrf_token %}
-                <div class="fstyle">
-                    {{ form }}
-                    <button type="submit">Login</button>
-                </div>
+                    {% csrf_token %}
+                    <div class="fstyle">
+                        {{ form }}
+                        <button type="submit">Login</button>
+                    </div>
                 </form>
             </div>
         </div>
 
     </div>
+
+    <script>
+        const alertbox = document.getElementById("alertbox");
+        const block = document.getElementById("block");
+        function show() {
+            block.style.display = "flex";
+            alertbox.style.display = "block";
+            block.classList.add("blackout");
+            alertbox.classList.add("alertbox");
+        }
+        function hide() {
+            block.style.display = "none";
+            alertbox.style.display = "none";
+        }
+    </script>
     {% if error %}
     <script>
-        alert("{{ error }}");
+        show();
     </script>
+    {% endif %}
+
 </body>
 
 </html>
