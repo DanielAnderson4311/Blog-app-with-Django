@@ -15,7 +15,6 @@ DofE skill
 
 5 - Made the alert box and some JS that will make the alert box appear ONLY whent there is an error. I found a few bugs when I was testing the app and have fixed them (such as templateSyntaxErrors that went unoticed before). I made a dummy model inside the accounts app that will allow me to set up some permissions and groups when the time comes. 
 
-6 - Fix the issue in the dashboard that means that the login button will become an edit account button (NOT CREATED the page yet - another week)
-Now, focus on making the create post UI and creating some logic for the view all posts (It will take the username that sends the request and sort the DB using that)
+6 - The creator field has been added to the posts model. It allows me to access it later on and find all their details. I have made the UI on the create page better (although some bugs stils)
 
 7 - The create post page looks bad and doesn't align witht he rest of the styling across the website (the FORM only)
