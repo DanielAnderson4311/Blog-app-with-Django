@@ -15,4 +15,7 @@ DofE skill
 
 5 - Made the alert box and some JS that will make the alert box appear ONLY whent there is an error. I found a few bugs when I was testing the app and have fixed them (such as templateSyntaxErrors that went unoticed before). I made a dummy model inside the accounts app that will allow me to set up some permissions and groups when the time comes. 
 
-6 - (to make this week: the account edit and dashboard for logging out, finish and finalize the button on the index.html that currently says different things for people that are logged in and not logged in but doesn't behave differently, begin on the posting functions) NOT COMPLETED WEEK 6 YET, NEXT WEEK
+6 - Fix the issue in the dashboard that means that the login button will become an edit account button (NOT CREATED the page yet - another week)
+Now, focus on making the create post UI and creating some logic for the view all posts (It will take the username that sends the request and sort the DB using that)
+
+7 - The create post page looks bad and doesn't align witht he rest of the styling across the website (the FORM only)

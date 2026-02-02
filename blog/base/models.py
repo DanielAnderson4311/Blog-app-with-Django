@@ -3,12 +3,14 @@ from django.db import models
 # Create your models here.
 
 # Model for the posts
+from django.contrib.auth.models import User
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=500)
     body = models.TextField()
     date_pub = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=100) # I want this to be automatic to Username later
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, null=True) # This will be the email/username of the user that created it so that I can link it back to them later
     # like_count = models.IntegerField(default=0)
     
 

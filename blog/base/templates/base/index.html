@@ -11,8 +11,13 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
+                {% if user.is_authenticated == False %}
+                <li style="margin-left: auto;"><a href="/accounts/login/">Login</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
                 <li style="margin-left: auto;"><a href="/accounts/dash/">
-                    {% if user.is_authenticated %}Account{% else %}Login{% endif %}</a></li>
+                    Dashboard</a></li>
+                    {% endif %}
                 <li><a href="#">Search</a></li>
             </ul>
         </nav>

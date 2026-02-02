@@ -58,3 +58,11 @@ def login(request):
             from .forms import LoginForm
             context = {"form": LoginForm(), "error": "Login failed. Check your username and password and try again..."}
             return render(request, 'accounts/login.html', context)
+
+
+
+def logout(request):
+    from django.contrib.auth import logout
+    from django.shortcuts import redirect
+    logout(request)
+    return redirect('/')
