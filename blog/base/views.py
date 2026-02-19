@@ -55,4 +55,31 @@ def viewall(request):
 
 
 def myposts(request):
-    pass
+    from .models import Post
+    # Get the user's username
+    user = request.user.username
+    posts = Post.objects.filter(author=user).order_by('-date_pub') # Get the posts that the user created, newest first
+    # Mkae it accessbible to the HTML page and render
+    content = {"posts": posts}
+    return render(request, 'base/myposts.html', content)
+
+
+
+def editpost(request, post_id):
+    from .models import Post
+    thepost = post_id # This will set thepost to the ID that i want to edit
+    user = request.user.username
+    post = Post.objects.get(id=thepost)
+    #CEHECK IT MATCHES
+    if not request.user.is_athenticated: # First check that they are logged in
+        from django.shortcuts import redirect
+        return redirect('/')
+    else:
+        pass
+    if post.author != user: # Now check that they are the user that created it
+        # It doesn't not match
+        from django.shortcuts import redirect
+        return redirect('/')
+    else:
+        # CORRECT
+        

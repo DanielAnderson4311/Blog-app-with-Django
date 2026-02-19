@@ -141,3 +141,38 @@ li a:hover {
     backdrop-filter: blur(7px);
     padding: 1px;
 }
+.manage_list_ctn {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px;
+    width: 100%;
+}
+.manage_list_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.338);
+    backdrop-filter: blur(7px);
+    border-radius: 6px;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+/* this is for the date, title and actions for the buttons, in the manage_list above */
+.date {
+    min-width: 100px;
+    margin-right: 5px;
+}
+.title {
+    flex: 1;
+    text-align: left;
+    min-width: 0;
+    font-weight: 600;
+}
+.actions {
+    display: flex;
+    gap: 8px;
+    min-width: 0;
+}

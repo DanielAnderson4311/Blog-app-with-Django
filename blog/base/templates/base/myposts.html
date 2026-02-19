@@ -1,0 +1,55 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Your posts</title>
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+
+</head>
+
+<body style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/static/base/Bannerimg1.png') no-repeat top center fixed;">
+    <!-- Navbarr -->
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                {% if user.is_authenticated == False %}
+                <li style="margin-left: auto;"><a href="/accounts/login/">Login</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                <li style="margin-left: auto;"><a href="/accounts/dash/">
+                        Dashboard</a></li>
+                {% endif %}
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+        <div class="banner" style="height: 60%">
+            <div class="glass_container">
+                <h1>Your Posts</h1>
+                <p>Edit, delete and view your posts here</p>
+            </div>
+        </div>
+        </div>
+
+        <div class="banner" style="box-sizing: border-box; height: auto;">
+            <!-- List of all the posts with an edit, delete buttons -->
+            <div class="manage_list_ctn">
+                {% for post in posts %}
+                <div class="manage_list_item">
+                    <div class="date">{{ post.date_pub }}</div> 
+                    <div class="title">{{ post.title }}</div>
+                    <div class="actions">
+                        <a href="#">edit</a>
+                        <a href="#">delete</a>
+                    </div>
+                </div>
+
+                {% endfor %}
+                {% if not posts %}
+                <div class="manage_list_item" style=" justify-content: center;">
+                    <div style="font-weight: 800; font-size:15px;">No posts yet, make your first post now!</div>
+                {% endif %}
+            </div>
+        </div>
+</body>
+
+</html>

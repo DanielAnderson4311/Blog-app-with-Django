@@ -5,7 +5,7 @@ from django.db import models
 # Model for the posts
 from django.contrib.auth.models import User
 class Post(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True) # Used so that I will know what each post is in the URL
     title = models.CharField(max_length=500)
     body = models.TextField()
     date_pub = models.DateTimeField(auto_now_add=True)
