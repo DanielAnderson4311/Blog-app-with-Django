@@ -17,6 +17,6 @@ DofE skill
 
 6 - The creator field has been added to the posts model. It allows me to access it later on and find all their details. I have made the UI on the create page better (although some bugs stils)
 
-7 - I have made the myposts.html page with the logic that will show only the posts that the logged in user has posted. I have started to work on the edit page but couldn't work out how to make the form prefilled. I will continue to look into this next week when I will:
-Add functionality that will allow the user to edit or delete the posts too and, 
-Make the prefilled form for the edit page
+7 - I have made the myposts.html page with the logic that will show only the posts that the logged in user has posted. I have started to work on the edit page but couldn't work out how to make the form prefilled.
+
+8 - I have created all the logic for the prefilled edit form and a delete function by using variable passed in through the URL

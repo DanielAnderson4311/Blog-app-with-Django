@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Add post</title>
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+</head>
+
+<body>
+    <div class="bannerimg">
+        <div class="banner">
+            <div class="glass_container">
+                <h1>
+                    Add a post
+                </h1>
+                <form action="/posts/myposts/edit/{{ post_id }}/" method="post">
+                    {% csrf_token %}
+                    <div class="fstyle">
+                        {{ form }}
+                        <input type="submit" value="Save">
+                    </div>
+                </form>
+                {% if success %}
+                <script>
+                    alert("Saved")
+                </script>
+                {% endif %}
+                {% if errors %}
+                <script>
+                    alert("{{ errors }}")
+                </script>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

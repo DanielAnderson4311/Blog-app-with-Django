@@ -38,8 +38,8 @@
                     <div class="date">{{ post.date_pub }}</div> 
                     <div class="title">{{ post.title }}</div>
                     <div class="actions">
-                        <a href="#">edit</a>
-                        <a href="#">delete</a>
+                        <a href="/posts/myposts/edit/{{ post.id}}">edit</a>
+                        <a href="/posts/myposts/delete/{{ post.id }}">delete</a>
                     </div>
                 </div>
 
@@ -50,6 +50,11 @@
                 {% endif %}
             </div>
         </div>
+        {% if message == True %}
+        <script>
+            alert("Post deleted successfully!");
+        </script>
+        {% endif %}
 </body>
 
 </html>
