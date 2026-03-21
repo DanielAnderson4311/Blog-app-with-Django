@@ -122,3 +122,36 @@ def deletepost(request, post_id):
     thepost.delete()
     from django.shortcuts import redirect
     return redirect('/posts/myposts/')
+
+
+
+def search(request):
+    # I want them to be able to search their own posts separately
+    from .forms import SearchForm
+    from .models import Post
+    from django.db.models import Q
+    if request.method == "POST":
+        # Get the raw query from the HTML input
+        query = request.POST.get("query", "").strip()
+        # If the user typed something search....
+        if query:
+            dataset = Post.objects.filter(
+                Q(title__icontains=query) |
+                Q(body__icontains=query)
+            ).order_by('-date_pub')
+
+            content = {
+                "posts": dataset,
+                "form": SearchForm()  
+            }
+            return render(request, 'base/search.html', content)
+        # If query is empty, return no results
+        return render(request, 'base/search.html', {
+            "posts": [],
+            "form": SearchForm()
+        })
+    # GET request so show empty search page
+    return render(request, 'base/search.html', {
+        "posts": [],
+        "form": SearchForm()
+    })

@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Search site
+    </title>
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+</head>
+
+<body>
+    <div class="bannerimg">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                {% if user.is_authenticated == False %}
+                <li style="margin-left: auto;"><a href="/accounts/login/">Login</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                <li style="margin-left: auto;"><a href="/accounts/dash/">
+                        Dashboard</a></li>
+                {% endif %}
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+        <div class="banner">
+            <div class="glass_container" style="width: 50%;">
+                <div class="search_field">
+                    <h1>Search site</h1> <br>
+                    <form action="/search/" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="query" placeholder="Search for posts, people and more..."
+                            class="searchfield"> <br><br>
+                        <input type="submit" value="Search" style="width: 20%">
+                    </form>
+                </div>
+            </div>
+            {% for post in posts %}
+            <div class="manage_list_item">
+                <div class="date">{{ post.date_pub }}</div>
+                <div class="title">{{ post.title }}</div>
+                <div class="actions">
+                    <a href="/posts/myposts/edit/{{ post.id}}">edit</a>
+                    <a href="/posts/myposts/delete/{{ post.id }}">delete</a>
+                </div>
+            </div>
+
+            {% endfor %}
+            {% if not posts %}
+            <div class="manage_list_item" style=" justify-content: center;">
+                <div style="font-weight: 800; font-size:15px;">No posts yet, make your first post now!</div>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

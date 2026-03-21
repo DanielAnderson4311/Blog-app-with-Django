@@ -20,3 +20,7 @@ DofE skill
 7 - I have made the myposts.html page with the logic that will show only the posts that the logged in user has posted. I have started to work on the edit page but couldn't work out how to make the form prefilled.
 
 8 - I have created all the logic for the prefilled edit form and a delete function by using variable passed in through the URL
+
+9 - I have started with the search feature. I want to make it so that there will a split between the users' own created posts and the others in the whole site. This should be done in the views and I have already made the .exclude() that should allow this to happen (in the users' own ones I should make another content in the dictionary)
+
+10 - Tried to change the search feature because it wasn't working. Still not working so I will need to keep looking into it. Should have it completed by next week

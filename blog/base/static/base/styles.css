@@ -176,3 +176,12 @@ li a:hover {
     gap: 8px;
     min-width: 0;
 }
+.search_field {
+    width: 100%
+}
+.search_field input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+}
