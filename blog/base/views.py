@@ -7,8 +7,17 @@ def home(request): # Renders home page
     return render(request, 'base/index.html')
 def dashboard(request): # Renders dashboard page
     return render(request, 'base/dashboard.html')
-def viewpost(request): # renders view post page
-    return render(request, 'base/view-post.html')
+def viewpost(request, post_id): # renders view post page
+    from .models import Post
+    from django.core.exceptions import ObjectDoesNotExist
+    # Check if the item is in the model first
+    try:
+        item = Post.objects.get(id=post_id)
+    except ObjectDoesNotExist:
+        return render(request, 'base/index.html')
+    # Object exists if this point is reached, now to show the page:
+    content = {"post": item}
+    return render(request, 'base/view-post.html', content)
 
 
 # Dealing with a creating post
@@ -130,10 +139,17 @@ def search(request):
     from .forms import SearchForm
     from .models import Post
     from django.db.models import Q
+
     if request.method == "POST":
         # Get the raw query from the HTML input
-        query = request.POST.get("query", "").strip()
-        # If the user typed something search....
+        form = SearchForm(request.POST)
+        query = None
+        if form.is_valid():
+            query = form.cleaned_data["query"]
+            query = query.strip()
+        else:
+            query = None
+        # If the user typed something search.... (I will change the content dict to include all the different types of search result later. )
         if query:
             dataset = Post.objects.filter(
                 Q(title__icontains=query) |
@@ -142,7 +158,7 @@ def search(request):
 
             content = {
                 "posts": dataset,
-                "form": SearchForm()  
+                "form": SearchForm()
             }
             return render(request, 'base/search.html', content)
         # If query is empty, return no results

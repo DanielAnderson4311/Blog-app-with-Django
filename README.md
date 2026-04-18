@@ -24,3 +24,5 @@ DofE skill
 9 - I have started with the search feature. I want to make it so that there will a split between the users' own created posts and the others in the whole site. This should be done in the views and I have already made the .exclude() that should allow this to happen (in the users' own ones I should make another content in the dictionary)
 
 10 - Tried to change the search feature because it wasn't working. Still not working so I will need to keep looking into it. Should have it completed by next week
+
+11 - Found the issue with the search. Spent a long time looking at the view function but it turns out that the template would always show the error message even when there is posts. Made a simple view post page for the specific posts by using the post_id (need to work on this next week though to make it more advanced). It will check for the post to see if it exists and then it will show the pafe is it does. Otherwise it will show the home page again. Next week I need to tidy up the whole site to make it more usable. 

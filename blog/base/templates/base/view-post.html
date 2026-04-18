@@ -1,13 +1,37 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-       <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}">
 </head>
+
 <body>
-    
+    <div class="bannerimg">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                {% if user.is_authenticated == False %}
+                <li style="margin-left: auto;"><a href="/accounts/login/">Login</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                <li style="margin-left: auto;"><a href="/accounts/dash/">
+                        Dashboard</a></li>
+                {% endif %}
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+        <!-- START HERE -->
+         <div class="banner">
+            <div class="glass_container">
+                <h1>{{ post.title }}</h1> <br>
+                <p>{{ post.body }}</p>
+            </div>
+         </div>
+    </div>
 </body>
+
 </html>
