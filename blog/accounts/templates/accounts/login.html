@@ -7,12 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
     <div id="block" style="display: none;">
         <div id="alertbox">{{ error }} <br><br><button onclick="hide()">Okay</button></div>
     </div> <!-- this is the alert box that will have the class changed when there is an error, JS -->
+                <div class="close_icon" style="position: absolute; top: 0; left: 0; z-index: 999;">
+            <a href="/">
+            <span class="material-symbols-outlined">home</span>
+            </a>
+        </div>
     <div class="bannerimg">
         <div class="banner">
             <div class="glass_container">

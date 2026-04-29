@@ -26,3 +26,5 @@ DofE skill
 10 - Tried to change the search feature because it wasn't working. Still not working so I will need to keep looking into it. Should have it completed by next week
 
 11 - Found the issue with the search. Spent a long time looking at the view function but it turns out that the template would always show the error message even when there is posts. Made a simple view post page for the specific posts by using the post_id (need to work on this next week though to make it more advanced). It will check for the post to see if it exists and then it will show the pafe is it does. Otherwise it will show the home page again. Next week I need to tidy up the whole site to make it more usable. 
+
+12 - Cleaned the website up. Completely changed the UI to make it more modern and clean. All the buttons should now work and lead to the correct page. Created some back buttons for certain pages and now all the pages should link together. Fixed a small search issue again. All should now be working as it is meant to. 

@@ -5,11 +5,36 @@
            <link rel="stylesheet" href="{% static 'base/styles.css' %}">
     </head>
     <body>
-        <h1 style="text-align: center;">All posts</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {% if user.is_authenticated == False %}
+                <li style="margin-left: auto;"><a href="/accounts/login/">Login</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                <li style="margin-left: auto;"><a href="/accounts/dash/">
+                        Dashboard</a></li>
+                {% endif %}
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+
+        <div class="title"><h1>All Posts</h1></div>
+
         {% for post in posts %}
-        <p>title: {{ post.title }}</p>
-        <p>preview: {{ post.body }}</p>
-        <p>by: {{ post.author }}</p>
+
+
+        <div class="label">
+
+
+            <span>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.body|truncatechars:100 }}</p>
+            </span>
+            <a href="/posts/{{ post.id }}/" class="simple_btn">Read more</a>
+
+        </div>
+
         {% endfor %}
     </body>
 </html>

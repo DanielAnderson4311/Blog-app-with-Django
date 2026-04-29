@@ -163,11 +163,11 @@ def search(request):
             return render(request, 'base/search.html', content)
         # If query is empty, return no results
         return render(request, 'base/search.html', {
-            "posts": [],
+            "posts": Post.objects.none(),
             "form": SearchForm()
         })
     # GET request so show empty search page
     return render(request, 'base/search.html', {
-        "posts": [],
+        "posts": Post.objects.none(),
         "form": SearchForm()
     })

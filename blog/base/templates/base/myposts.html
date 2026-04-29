@@ -4,14 +4,15 @@
 <head>
     <title>Your posts</title>
     <link rel="stylesheet" href="{% static 'base/styles.css' %}">
-
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
-<body style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/static/base/Bannerimg1.png') no-repeat top center fixed;">
-    <!-- Navbarr -->
+<body>
+    <!-- Navbar -->
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 {% if user.is_authenticated == False %}
                 <li style="margin-left: auto;"><a href="/accounts/login/">Login</a>
                     {% endif %}
@@ -19,7 +20,7 @@
                 <li style="margin-left: auto;"><a href="/accounts/dash/">
                         Dashboard</a></li>
                 {% endif %}
-                <li><a href="#">Search</a></li>
+                <li><a href="/search/">Search</a></li>
             </ul>
         </nav>
         <div class="banner" style="height: 60%">
@@ -30,16 +31,19 @@
         </div>
         </div>
 
-        <div class="banner" style="box-sizing: border-box; height: auto;">
             <!-- List of all the posts with an edit, delete buttons -->
-            <div class="manage_list_ctn">
+            <div class="">
                 {% for post in posts %}
-                <div class="manage_list_item">
-                    <div class="date">{{ post.date_pub }}</div> 
-                    <div class="title">{{ post.title }}</div>
-                    <div class="actions">
-                        <a href="/posts/myposts/edit/{{ post.id}}">edit</a>
-                        <a href="/posts/myposts/delete/{{ post.id }}">delete</a>
+                <div class="label">
+                    <div class="">{{ post.date_pub }}</div> 
+                    <div class="">{{ post.title|truncatechars:50 }}</div>
+                    <div class="">
+                        <a href="/posts/myposts/edit/{{ post.id}}"><span class="material-symbols-outlined" style="color: blue;">
+                edit
+            </span></a>
+                        <a href="/posts/myposts/delete/{{ post.id }}"><span class="material-symbols-outlined" style="color: blue;">
+                delete
+            </span></a>
                     </div>
                 </div>
 

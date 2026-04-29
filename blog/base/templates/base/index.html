@@ -16,16 +16,27 @@
                     {% endif %}
                     {% if user.is_authenticated %}
                 <li style="margin-left: auto;"><a href="/accounts/dash/">
-                    Dashboard</a></li>
-                    {% endif %}
+                        Dashboard</a></li>
+                {% endif %}
                 <li><a href="#">Search</a></li>
             </ul>
         </nav>
-        <div class="banner">
-            <div class="glass_container" style="padding: 50px;">
-                <h1>Welcome to the Blog Home Page</h1>
-                <br>
-                <p>Discover the latest posts and updates from our community.</p>
+
+
+
+        <div class="banner" style="justify-content: flex-start;">
+            <div class="two_side_grid_container">
+                <div class="two_side_grid_item">
+                    <h1>Welcome to the Blog Home Page</h1>
+                    <br>
+                    <p>Discover the latest posts and updates from our community.</p>
+                    <br>
+                    <a href="/posts/" class="simple_btn">Latest posts</a>
+                </div>
+
+                <div class="two_side_grid_item">
+                    <img src="{% static 'base/Bannerimg1.png' %}" alt="Banner Image">
+                </div>
             </div>
         </div>
     </div>

@@ -7,13 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'base/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back" />
 </head>
 
 <body>
+<style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color: black;
+}
+</style>
     <div class="bannerimg">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 {% if user.is_authenticated == False %}
                 <li style="margin-left: auto;"><a href="/accounts/login/">Login</a>
                     {% endif %}
@@ -21,15 +32,21 @@
                 <li style="margin-left: auto;"><a href="/accounts/dash/">
                         Dashboard</a></li>
                 {% endif %}
-                <li><a href="#">Search</a></li>
+                <li><a href="/search/">Search</a></li>
             </ul>
         </nav>
-        <!-- START HERE -->
-         <div class="banner">
-            <div class="glass_container">
-                <h1>{{ post.title }}</h1> <br>
+
+        <div class="close_icon">
+            <a href="/posts/">
+            <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+        </div>
+
+        <!-- Main body -->
+
+         <div class="content_container">
+                <span style="display: inline;"><h1 style="display: inline;">{{ post.title }}     </h1><span style="font-weight: 900;">   by </span>{{ post.creator.first_name }} {{ post.creator.last_name }}<span style="font-weight: 900;"> on </span>{{ post.date_pub }} </span><br><br>
                 <p>{{ post.body }}</p>
-            </div>
          </div>
     </div>
 </body>

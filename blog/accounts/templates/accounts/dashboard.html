@@ -7,40 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User dashboard</title>
     <link rel="stylesheet" href="{% static 'base/styles.css' %}">
-    <!-- This page will have the options for logging in and out and changing a profile (when I make it....) -->
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+
 </head>
 
 <body>
-    <div class="bannerimg">
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li style="margin-left: auto;"><a href="/accounts/login/">Account</a></li>
-                <li><a href="#">Search</a></li>
-            </ul>
-        </nav>
-        <div class="banner">
-            <div class="glass_container" style="padding: 50px; width: 27%;">
-                <h1>Accounts</h1>
-                <br>
-                <p>Login, logout and edit your account</p>
-            </div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li style="margin-left: auto;"><a href="/accounts/login/">Account</a></li>
+            <li><a href="/search/">Search</a></li>
+        </ul>
+    </nav>
+    <br><br><br><br><br>
+    <div class="banner">
+        <div class="glass_container" style="padding: 50px; width: 27%;">
+            <h1>Accounts</h1>
+            <br>
+            <p>Login, logout and edit your account</p>
         </div>
-
-        <!-- Options for the login and logout buttonss -->
-            <div class="account_btn_ctn">
-                <a class="account_btn_btn" href="/accounts/login/">Login</a>
-                <a class="account_btn_btn" href="/accounts/logout/">Logout</a>
-                {% if request.is_authenticated == False %}
-                <a class="account_btn_btn" href="/accounts/signup/">Sign up</a>
-                {% endif %}
-            </div>
-            <!-- Create post and view created posts buttons -->
-            <div class="account_btn_ctn" style="margin-top: 1px;">
-                <a class="account_btn_btn" href="/create/">Create Post</a>
-                <a class="account_btn_btn" href="/posts/myposts/">View My Posts</a>
-                </div>
     </div>
+    <br><br><br><br><br>
+    <!-- Options for the login and logout buttonss -->
+
+    <div class="options_select">
+        <a href="/posts/myposts/" class="option_btn" title="View all your posts"><span class="material-symbols-outlined">
+                lists
+            </span></a>
+                    <a href="/create/" class="option_btn" title="Create Post"><span class="material-symbols-outlined">
+                add_2
+            </span></a>
+                    <a href="/search/" class="option_btn" title="Search all..."><span class="material-symbols-outlined">
+                search
+            </span></a>
+
+
+
+        <a href="/accounts/logout/" class="option_btn" title="Logout"><span class="material-symbols-outlined">
+logout
+</span></a>
+    </div>
+
+
 </body>
 
 </html>
